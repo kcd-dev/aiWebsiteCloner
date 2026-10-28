@@ -1,154 +1,135 @@
 <div align="center">
 
-# AI Website Cloner Template
+# AI Website Cloner
 
-### Clone any website with one command
+把公开可访问的网页交给编程 Agent，重建成可编辑的 Next.js 项目。
 
-Give your AI coding agent a URL and watch it recreate the website as a clean Next.js app.
+它会按页面上的内容、资源和交互，在本模板里落地页面。
 
-**Best results with [Claude Code](https://docs.anthropic.com/en/docs/claude-code) + Opus 5.5. Also supports Codex, Cursor, and OpenCode.**
-
-[![Use this template](https://img.shields.io/badge/Use_this_template-Create_your_copy-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/JCodesMore/ai-website-cloner-template/generate) [![Discord](https://img.shields.io/badge/Join_the_community-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/hrTSX5yTpB)
-
-[Quick Start](#quick-start) · [Watch Demo](#demo) · [Supported Platforms](#supported-platforms)
-
-<a href="https://github.com/JCodesMore/ai-website-cloner-template/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License" /></a> <a href="https://github.com/JCodesMore/ai-website-cloner-template"><img src="https://img.shields.io/github/stars/JCodesMore/ai-website-cloner-template?style=flat" alt="Stars" /></a> <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/JCodesMore/ai-website-cloner-template/badges/token-badge.json" alt="tokens" />
-
-  <a href="https://trendshift.io/repositories/24302?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-24302" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/24302" alt="JCodesMore%2Fai-website-cloner-template | Trendshift" width="250" height="55" /></a> <a href="https://www.star-history.com/jcodesmore/ai-website-cloner-template/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/badge?repo=JCodesMore/ai-website-cloner-template&amp;theme=dark" /><source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/badge?repo=JCodesMore/ai-website-cloner-template" /><img alt="Star History Global Rank" src="https://api.star-history.com/badge?repo=JCodesMore/ai-website-cloner-template" width="216" height="55" /></picture></a>
+[![MIT](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 
 </div>
 
 ---
 
-## Demo
+## 这是什么
 
-[![Watch the demo](docs/design-references/comparison.png)](https://youtu.be/O669pVZ_qr0)
-
-> Click the image above to watch the full demo on YouTube.
-
-## Quick Start
-
-### 1. Set up your project
-
-**Recommended: ask your agent.** Paste this into Codex, Claude Code, or your coding agent:
-
-```text
-Set up https://github.com/JCodesMore/ai-website-cloner-template
-as a standalone project in a new folder on my computer.
-Ask me where to put it. Clone the repository, remove its origin remote,
-install dependencies, and run npm run check. Leave it ready for me
-to clone a website.
-```
-
-**Or create your own GitHub repository:**
-
-[![Use this template](https://img.shields.io/badge/Use_this_template-Create_your_copy-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/JCodesMore/ai-website-cloner-template/generate)
-
-Give it a name and click **Create repository**. Then give your agent the new repository's link and ask it to clone it onto your computer, install dependencies, and run `npm run check`.
-
-### 2. Clone a website
-
-Open the project in your agent with browser access enabled. In Claude Code or Cursor, run:
+这是一个网站逆向模板。Next.js、shadcn/ui、Tailwind CSS v4 已经搭好。在支持的编程 Agent 里运行：
 
 ```text
 /clone-website https://example.com
 ```
 
-Replace the URL with the website you want to recreate. Once it's built, ask your agent for any changes you want.
+可以一次传入多个网址：`/clone-website <url1> [<url2> ...]`。
 
-## Supported Platforms
+先按目标站 1:1 还原间距、颜色、字体和交互，再按你的要求改。克隆阶段使用页面上的真实文案和资源，不用占位图。
 
-| Agent                                                         | Status                     |
-| ------------------------------------------------------------- | -------------------------- |
-| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | **Recommended** — Opus 5.5 |
-| [Codex CLI](https://github.com/openai/codex)                  | Supported                  |
-| [OpenCode](https://opencode.ai/)                              | Supported                  |
-| [Cursor](https://cursor.com/)                                 | Supported                  |
+MIT 只许可本模板代码。被克隆页面的文案、图片、字体和商标仍归原权利人。只克隆你有权复制的站点，或仅在本地学习、对照。
 
-## Prerequisites
+本仓库基于 [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template)（MIT）。版权与许可见 [LICENSE](./LICENSE)。
 
-- [Node.js](https://nodejs.org/) 24+
-- An AI coding agent (see [Supported Platforms](#supported-platforms))
+## 环境
 
-## Tech Stack
+- [Node.js](https://nodejs.org/) 24 及以上（见 `.nvmrc`）
+- 一个带浏览器能力的编程 Agent
 
-- **Next.js 16** — App Router, React 19, TypeScript strict
-- **shadcn/ui** — Base UI primitives + Tailwind CSS v4
-- **Tailwind CSS v4** — oklch design tokens
-- **Lucide React** — default icons (replaced by extracted SVGs during cloning)
+| Agent | 状态 |
+| --- | --- |
+| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | 推荐 |
+| [Codex CLI](https://github.com/openai/codex) | 支持 |
+| [OpenCode](https://opencode.ai/) | 支持 |
+| [Cursor](https://cursor.com/) | 支持 |
 
-## How It Works
+## 快速开始
 
-The `/clone-website` skill follows four steps:
-
-1. **Map** — map source URLs to local routes and preserve existing work.
-2. **Observe** — inspect desktop/mobile pages, extract real assets and fonts, and exercise alternate states.
-3. **Build** — implement editable components and working interactions; delegate independent sections when useful.
-4. **Compare** — review source and local pages at matched sizes/states, repair visible differences, and run the production check.
-
-Framer pages and animated sites have focused inspection guidance for responsive variants, media, sticky scenes, and scroll/time-driven motion. Direct HTTP or asset tools handle extraction where practical; browser comparisons establish appearance and behavior. Deliverables include route mappings, run instructions, comparison screenshots, and any remaining gaps.
-
-## Use Cases
-
-- **Platform migration** — rebuild a site you own from WordPress/Webflow/Squarespace into a modern Next.js codebase
-- **Lost source code** — your site is live but the repo is gone, the developer left, or the stack is legacy. Get the code back in a modern format
-- **Learning** — deconstruct how production sites achieve specific layouts, animations, and responsive behavior by working with real code
-
-## Not Intended For
-
-- **Phishing or impersonation** — this project must not be used for deceptive purposes, impersonation, or any activity that breaks the law.
-- **Passing off someone's design as your own** — logos, brand assets, and original copy belong to their owners.
-- **Violating terms of service** — some sites explicitly prohibit scraping or reproduction. Check first.
-
-## Project Structure
-
+```bash
+git clone git@github.com:kcd-dev/aiWebsiteCloner.git
+cd aiWebsiteCloner
+npm install
+npm run check
+npm run dev
 ```
+
+`npm run dev` 启动开发服务器。`npm run check` 依次执行 lint、类型检查和生产构建。
+
+## 克隆网站
+
+在项目里对 Agent 说：
+
+```text
+/clone-website https://example.com
+```
+
+把网址换成要重建的站点。构建完成后，直接让 Agent 改你要动的部分。
+
+流程固定四步：
+
+1. **映射** — 把源站 URL 对应到本地路由，保留已有页面。
+2. **观察** — 看桌面和移动端，提取真实资源与字体，并走一遍关键状态。
+3. **实现** — 写成可编辑组件和可用交互。
+4. **对照** — 按相同视口和状态比较源站与本地页，修可见差异，再跑生产检查。
+
+技能正文在 `.agents/skills/clone-website/`。Codex、Cursor、OpenCode 直接读它。Claude Code 通过 `.claude/commands/clone-website.md` 调用同一套流程，不要在桥接文件里再写一份。
+
+## 技术栈
+
+- **Next.js 16**：App Router、React 19、TypeScript strict
+- **shadcn/ui**：Base UI 原语，`cn()` 工具
+- **Tailwind CSS v4**：oklch 设计令牌
+- **Lucide React**：默认图标；克隆时会换成从源站提取的 SVG
+- **部署**：面向 Vercel
+
+## 命令
+
+```bash
+npm run dev        # 开发服务器
+npm run build      # 生产构建
+npm run start      # 启动生产服务
+npm run lint       # ESLint
+npm run typecheck  # TypeScript 检查
+npm run check      # lint + typecheck + build
+```
+
+Docker：
+
+```bash
+docker compose up app --build   # 构建并运行
+docker compose up dev --build   # 开发模式，端口 3001
+```
+
+## 代码约定
+
+- TypeScript 严格模式，不用 `any`
+- 具名导出；组件 PascalCase，工具函数 camelCase
+- 样式用 Tailwind 或局部 CSS；只有动态值才写内联样式
+- 缩进 2 空格，移动端优先
+
+## 目录
+
+```text
 src/
-  app/              # Next.js routes
-  components/       # React components
-    ui/             # shadcn/ui primitives
-    sites/<site>/   # Source-specific components and extracted SVGs
-  lib/utils.ts      # cn() utility
-  types/            # TypeScript interfaces
-  hooks/            # Custom React hooks
-public/
-  sites/<site>/     # Source-specific images, fonts, videos, and other assets
+  app/                 # Next.js 路由
+  components/
+    ui/                # shadcn/ui 基础组件
+    sites/<site>/      # 某个源站的组件和提取出的 SVG
+  lib/utils.ts         # cn()
+  types/               # 类型
+  hooks/               # 自定义 Hook
+public/sites/<site>/   # 图片、字体、视频等资源
 docs/
-  research/<site>/  # Page brief, asset map, and inspection evidence
-  design-references/ # Screenshots
-.agents/skills/
-  clone-website/    # Canonical skill and inspection reference
-.claude/commands/
-  clone-website.md  # Thin Claude Code bridge
-AGENTS.md           # Agent instructions (single source of truth)
-CLAUDE.md           # Claude Code config (imports AGENTS.md)
+  research/<site>/     # 页面简报、资源映射、检查记录
+  design-references/   # 截图
+.agents/skills/clone-website/   # 克隆流程（唯一正文）
+.claude/commands/clone-website.md
+AGENTS.md              # Agent 说明
 ```
 
-## Commands
+## 适用与边界
 
-```bash
-npm run dev    # Start dev server
-npm run build  # Production build
-npm run lint   # ESLint check
-npm run typecheck # TypeScript check
-npm run check  # Run lint + typecheck + build
-```
+适用：把你拥有的站点从 WordPress、Webflow、Squarespace 迁到 Next.js；源码丢失后按线上页面找回可维护代码；对照真实站点学习布局和动效。
 
-### If using docker
+不要用于钓鱼、冒充他人品牌，或把别人的标志、品牌资源和原创文案当成自己的。源站服务条款禁止抓取或复刻时，先确认再做。
 
-```bash
-docker compose up app --build # build and run the app
-docker compose up dev --build # run the app in dev mode on port 3001
-```
+## 许可
 
-## Agent Support
-
-The project keeps one portable Agent Skill at `.agents/skills/clone-website/`. Codex, Cursor, and OpenCode read it directly. Claude Code uses the small command bridge at `.claude/commands/clone-website.md` so `/clone-website` and its arguments continue to work without exposing a duplicate skill to the other agents.
-
-## Star History
-
-![Star History Chart](docs/assets/star-history.png)
-
-## License
-
-MIT
+[MIT](./LICENSE)。Copyright (c) 2025 JCodesMore。
